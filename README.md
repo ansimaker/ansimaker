@@ -7,8 +7,7 @@ Ansimaker provides an easy to use interface that helps you generate Ansible Play
 
 ## Documentation
 
-- [Overview](docs/general): A short overview of the included tools
-- [**Commands**](docs/general/commands.md): Getting the most out of the Ansimaker
+- [Overview](docs/commands.md): A short overview of the included tools
 
 License
 -------
