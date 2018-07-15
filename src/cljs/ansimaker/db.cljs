@@ -1,0 +1,4 @@
+(ns ansimaker.db)
+
+(def default-db
+  {:name "re-frame"})
