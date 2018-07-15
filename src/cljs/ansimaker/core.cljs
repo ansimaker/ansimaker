@@ -5,8 +5,7 @@
    [ansimaker.events :as events]
    [ansimaker.routes :as routes]
    [ansimaker.main :as main]
-   [ansimaker.config :as config]
-   ))
+   [ansimaker.config :as config]))
 
 (defn dev-setup []
   (when config/debug?

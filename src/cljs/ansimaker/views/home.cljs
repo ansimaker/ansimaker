@@ -1,6 +1,7 @@
 (ns ansimaker.views.home
   (:require [cljss.core :as css :refer-macros [defstyles]]
-            [ansimaker.ui.components :refer[Link H1 Input Icon]]))
+            [ansimaker.ui.components :refer[Link H1 Input Icon]]
+            [re-frame.core :as re-frame]))
 
 (defstyles home []
   {:text-align "center"
@@ -26,11 +27,17 @@
                    :left "22px"
                    :top "142px"}})
 
+(defn InputSearch []
+  (let [value (re-frame/subscribe [:project-name])]
+    (Input {:placeholder "project name..."
+            :on-change (re-frame/dispatch [::project-name (-> % .-target .-value)])})))
+
 (defn home-panel []
   [:section {:class (home)}
    [:div {:class (container)}
     (H1 "Automate everything in a few clicks")
     [:p {:class (description)}
-     "Ansimaker provides an easy to use interface that helps you generate Ansible Playbooks."]
-    (Input {:placeholder "project name..."})
+     "Ansimaker provides an easy to use interface
+      that helps you generate Ansible Playbooks."]
+    (InputSearch)
     (Icon "icon-folder")]])

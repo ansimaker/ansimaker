@@ -13,3 +13,8 @@
  ::set-active-panel
  (fn-traced [db [_ active-panel]]
    (assoc db :active-panel active-panel)))
+
+(re-frame/reg-event-db
+ :project-name
+ (fn-traced [db [_ project-name]]
+            (assoc db :project-name project-name)))
