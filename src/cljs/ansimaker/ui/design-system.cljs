@@ -3,4 +3,8 @@
 
 ;; design system
 (def colors
-  {:purple "#7B67F5"})
+  {:purple "#7B67F5"
+   :green "#00CA7D"})
+
+(def containers
+  {:medium "860px"})

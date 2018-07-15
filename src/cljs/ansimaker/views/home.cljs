@@ -1,6 +1,7 @@
 (ns ansimaker.views.home
   (:require [cljss.core :as css :refer-macros [defstyles]]
-            [ansimaker.ui.components :refer[Link H1 Input Icon]]
+            [ansimaker.ui.components :refer[Link H1 Input Icon LinkBottom]]
+            [ansimaker.ui.design-system :refer [containers]]
             [re-frame.core :as re-frame]))
 
 (defstyles home []
@@ -18,7 +19,7 @@
   {:color "#839AA6"})
 
 (defstyles container []
-  {:max-width "860px"
+  {:max-width (:medium containers)
    :position "relative"
    :margin "0 auto"
    ".icon-folder" {:position "absolute"
@@ -30,7 +31,8 @@
 (defn InputSearch []
   (let [value (re-frame/subscribe [:project-name])]
     (Input {:placeholder "project name..."
-            :on-change (re-frame/dispatch [::project-name (-> % .-target .-value)])})))
+            :value @value
+            :on-change #(re-frame/dispatch [:project-name (-> % .-target .-value)])})))
 
 (defn home-panel []
   [:section {:class (home)}
@@ -40,4 +42,5 @@
      "Ansimaker provides an easy to use interface
       that helps you generate Ansible Playbooks."]
     (InputSearch)
-    (Icon "icon-folder")]])
+    (Icon "icon-folder")
+    (LinkBottom "Continue")]])

@@ -8,7 +8,7 @@
    (:active-panel db)))
 
 (re-frame/reg-sub
- ::project-name
+ :project-name
  (fn [db]
    (.log js/console db)
    (:project-name db)))
