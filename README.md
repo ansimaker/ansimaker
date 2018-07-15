@@ -3,8 +3,6 @@
 [![Build Status](https://travis-ci.org/ansimaker/ansimaker.svg?branch=master)](https://travis-ci.org/ansimaker/ansimaker)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-<img width="200" src="https://github.com/ansimaker/ansimaker/blob/master/internals/assets/worker.png"/>
-
 Ansimaker provides an easy to use interface that helps you generate Ansible Playbooks.
 
 ## Documentation
