@@ -35,12 +35,15 @@
             :on-change #(re-frame/dispatch [:project-name (-> % .-target .-value)])})))
 
 (defn home-panel []
-  [:section {:class (home)}
-   [:div {:class (container)}
-    (H1 "Automate everything in a few clicks")
-    [:p {:class (description)}
-     "Ansimaker provides an easy to use interface
+  (let [project-name (re-frame/subscribe [:project-name])]
+    [:section {:class (home)}
+     [:div {:class (container)}
+      (H1 "Automate everything in a few clicks")
+      [:p {:class (description)}
+       "Ansimaker provides an easy to use interface
       that helps you generate Ansible Playbooks."]
-    (InputSearch)
-    (Icon "icon-folder")
-    (LinkBottom "Continue")]])
+      (InputSearch)
+      (Icon "icon-folder")
+      (if (empty? @project-name)
+        nil
+        (LinkBottom "Continue"))]]))
